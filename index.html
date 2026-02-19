@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Shoes To Go | Limpieza Profesional</title>
+
+    <!-- ✅ CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- ✅ Icono pestaña -->
+    <link rel="icon" type="image/png" href="img/logo-chat.png">
+
+    <!-- ✅ Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+    <!-- ✅ Bootstrap -->
+    <link rel="stylesheet"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+</head>
+
+<body>
+
+<!-- ============================= -->
+<!-- ✅ NAVBAR -->
+<!-- ============================= -->
+
+<nav class="navbar navbar-inverse">
+    <div class="container">
+
+        <div class="navbar-header">
+
+            <!-- Botón responsive -->
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+
+            <!-- Logo -->
+            <a class="navbar-brand" href="#">
+                Shoes To Go
+            </a>
+        </div>
+
+        <!-- Menú -->
+        <div class="collapse navbar-collapse" id="menu">
+
+    <ul class="nav navbar-nav">
+        <li><a href="#inicio">Inicio</a></li>
+        <li><a href="#como-funciona">¿Cómo funciona?</a></li>
+        
+        <!-- Dropdown -->
+        <li class="dropdown">
+            <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                Servicios <span class="caret"></span>
+            </a>
+          
+            <ul class="dropdown-menu">
+                <li><a href="#servicios">🧼 Limpieza</a></li>
+                <li><a href="#precios">💰 Paquetes</a></li>
+                <li><a href="#zonas">📍 Zonas</a></li>
+                <li role="separator" class="divider"></li>
+                <li><a href="html/reservas.html">📅 Reservar</a></li>
+            </ul>
+        </li>
+      
+        <li><a href="#galeria">Galería</a></li>
+        <li><a href="#contacto">Contacto</a></li>
+    </ul>
+
+            <!-- Dark Mode -->
+            <ul class="nav navbar-nav navbar-right">
+                <li>
+                    <a href="#" onclick="toggleDarkMode()" class="dark-btn">
+                        🌙
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+</nav>
+
+
+<!-- ============================= -->
+<!-- ✅ HERO -->
+<!-- ============================= -->
+
+<div class="container" id="inicio">
+    <div class="jumbotron text-center">
+        <h1>¡TUS TENIS COMO NUEVOS!</h1>
+
+        <p>
+            <strong>Shoes To Go</strong> cuida lo que te acompaña en cada paso 👟✨
+        </p>
+
+        <a href="html/reservas.html" class="btn btn-primary btn-lg">
+            📅 Agenda tu recolección ahora
+        </a>
+    </div>
+</div>
+
+
+<!-- ============================= -->
+<!-- ✅ CÓMO FUNCIONA -->
+<!-- ============================= -->
+
+<div class="container" id="como-funciona">
+    <h2 class="text-center">¿Cómo Funciona Shoes To Go?</h2>
+
+    <p class="text-center">
+        Fácil, rápido y sin complicaciones.  
+        Tú agendas… nosotros hacemos el resto 😮‍💨👟✨
+    </p>
+
+    <div class="row">
+
+        <div class="col-md-3">
+            <div class="card-status text-center">
+                <h3>1️⃣ Agenda</h3>
+                <p>Elige fecha y hora desde nuestra web en menos de 1 minuto.</p>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card-status text-center">
+                <h3>2️⃣ Recogemos</h3>
+                <p>Pasamos por tus tenis en tu casa o punto acordado en Costa Rica.</p>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card-status text-center">
+                <h3>3️⃣ Limpieza</h3>
+                <p>Limpieza profunda + suelas blancas + cuidado premium.</p>
+            </div>
+        </div>
+
+        <div class="col-md-3">
+            <div class="card-status text-center">
+                <h3>4️⃣ Entrega</h3>
+                <p>Te los devolvemos listos para caminar con flow 🔥</p>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="text-center">
+        <a href="html/reservas.html" class="btn btn-primary btn-lg">
+            📅 Agendar ahora
+        </a>
+    </div>
+</div>
+
+<!-- ============================= -->
+<!-- 📍 ZONAS DE RECOLECCIÓN -->
+<!-- ============================= -->
+
+<div class="container" id="zonas">
+
+    <h2 class="text-center">Zonas de Recolección 🚗👟</h2>
+
+    <p class="text-center">
+        Actualmente recogemos y entregamos dentro del <strong>Gran Área Metropolitana (GAM)</strong>.
+        <br>
+        Si estás fuera, podemos coordinar un costo adicional por WhatsApp.
+    </p>
+
+    <div class="row">
+
+      <!-- Lista de zonas -->
+        <div class="col-md-5">
+            <div class="card-status">
+
+                <h3>📍 Zonas disponibles</h3>
+                
+                <ul style="font-size:16px; line-height:2;">
+                    <li>✅ San José Centro (Gratis)</li>
+                    <li>✅ Heredia Centro (+₡500)</li>
+                    <li>✅ Alajuela Centro (+₡800)</li>
+                    <li>✅ Cartago Centro (+₡800)</li>
+                </ul>
+              
+                <p style="margin-top:15px;">
+                    ¿No estás seguro? Escríbenos y te confirmamos en segundos 👇
+                </p>
+              
+                <a href="https://wa.me/50685936114"
+                    target="_blank"
+                    class="btn btn-primary btn-block">
+                    📲 Consultar por WhatsApp
+                </a>
+            
+            </div>
+        </div>
+
+      <!-- Mapa -->
+        <div class="map-box">
+            <div class="card-status text-center">
+
+                <h3>🗺️ Mapa de cobertura</h3>
+                
+                <iframe 
+                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d77780.521378384
+                    07!2d-84.0855259807296!3d9.937021192641536!2m3!1f0!2f0!3f0!3m2!1i1024!2i76
+                    8!4f13.1!3m3!1m2!1s0x8fa0e342c50d15c5%3A0xe6746a6a9f11b882!2zU2FuIEpvc8Op!
+                    5e1!3m2!1ses!2scr!4v1771519523646!5m2!1ses!2scr" width="600" height="450" 
+                    style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-ref
+                    errer-when-downgrade"
+                    allowfullscreen=""
+                    loading="lazy">
+                </iframe>
+              
+                <p style="margin-top:10px;">
+                    Recogemos en puntos principales del GAM.
+                </p>
+            
+            </div>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ============================= -->
+<!-- ✅ SERVICIOS -->
+<!-- ============================= -->
+
+<div class="container" id="servicios">
+    <h2 class="text-center">Servicios Shoes To Go</h2>
+
+    <p class="text-center">
+        Sneakers limpios = outfit completo 😮‍💨🔥
+    </p>
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="card-status text-center">
+                <h3><i class="fa-solid fa-shoe-prints"></i> Limpieza Full</h3>
+                <p>Lavado profundo interior y exterior. Tus tenis vuelven fresh.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card-status text-center">
+                <h3><i class="fa-solid fa-broom"></i> Suelas Blancas</h3>
+                <p>Eliminamos manchas y devolvemos el color original.</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card-status text-center">
+                <h3><i class="fa-solid fa-gift"></i> Extras Gratis</h3>
+                <p>Cordones + stickers + plantillas premium incluidos 😎</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- ============================= -->
+<!-- 🎞️ GALERÍA -->
+<!-- ============================= -->
+
+<div class="container" id="galeria">
+    <h2 class="text-center">Antes vs Después</h2>
+
+    <div id="sliderZapatos" class="carousel slide" data-ride="carousel">
+
+        <ol class="carousel-indicators">
+            <li data-target="#sliderZapatos" data-slide-to="0" class="active"></li>
+            <li data-target="#sliderZapatos" data-slide-to="1"></li>
+        </ol>
+
+        <div class="carousel-inner">
+
+            <div class="item active text-center">
+                <img src="img/antes.png" class="slider-img">
+                <h3>Antes</h3>
+            </div>
+
+            <div class="item text-center">
+                <img src="img/despues.png" class="slider-img">
+                <h3>Después</h3>
+            </div>
+
+        </div>
+
+        <a class="left carousel-control" href="#sliderZapatos" data-slide="prev">
+            <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+
+        <a class="right carousel-control" href="#sliderZapatos" data-slide="next">
+            <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+
+    </div>
+</div>
+
+
+<!-- ============================= -->
+<!-- 💰 PAQUETES -->
+<!-- ============================= -->
+
+<div class="container" id="precios">
+    <h2 class="text-center">Paquetes Shoes To Go</h2>
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="card-status text-center">
+                <h3>Básico</h3>
+                <p>Limpieza exterior rápida + sticker.</p>
+                <a href="html/reservas.html" class="btn btn-reservar">
+                    Reservar
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card-status text-center">
+                <h3>Premium</h3>
+                <p>Limpieza completa + cordones + 2 stickers 🔥</p>
+                <a href="html/reservas.html" class="btn btn-reservar">
+                    Reservar
+                </a>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card-status text-center">
+                <h3>Familiar</h3>
+                <p>3 pares en combo. Ideal para familia 👟👟👟</p>
+                <a href="html/reservas.html" class="btn btn-reservar">
+                    Reservar
+                </a>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- ============================= -->
+<!-- ⭐ TESTIMONIOS -->
+<!-- ============================= -->
+
+<div class="container" id="testimonios">
+    <h2 class="text-center">Clientes Felices</h2>
+
+    <div class="row">
+
+        <div class="col-md-4">
+            <div class="card-status text-center">
+                <h3><i class="fa-solid fa-user"></i> María G.</h3>
+                <div class="stars">
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                    <i class="fa-solid fa-star"></i>
+                </div>
+                <p>“Quedaron como nuevos. Full recomendado.”</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card-status text-center">
+                <h3><i class="fa-solid fa-user"></i> Carlos R.</h3>
+                <div class="stars">
+                    ⭐⭐⭐⭐⭐
+                </div>
+                <p>“Servicio 10/10, demasiado profesional.”</p>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card-status text-center">
+                <h3><i class="fa-solid fa-user"></i> Andrea S.</h3>
+                <div class="stars">
+                    ⭐⭐⭐⭐⭐
+                </div>
+                <p>“Los mejores en Costa Rica 👟🔥”</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- ============================= -->
+<!-- ❓ FAQ -->
+<!-- ============================= -->
+
+<div class="container" id="faq">
+    <h2 class="text-center">Preguntas Frecuentes</h2>
+
+    <div class="faq-accordion">
+
+        <div class="faq-item">
+            <button class="faq-question">¿Cuánto dura el servicio?</button>
+            <div class="faq-answer">
+                Normalmente entre <strong>24 y 48 horas</strong>.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">¿Qué incluye la limpieza?</button>
+            <div class="faq-answer">
+                Limpieza completa + cordones + stickers + empaque premium.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">¿En qué zonas recogen?</button>
+            <div class="faq-answer">
+                GAM principal: San José, Heredia, Alajuela, Cartago.
+            </div>
+        </div>
+
+        <div class="faq-item">
+            <button class="faq-question">¿Cómo puedo agendar?</button>
+            <div class="faq-answer">
+                Presiona “Agendar ahora” y se envía directo a WhatsApp.
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- ============================= -->
+<!-- 📩 CONTACTO -->
+<!-- ============================= -->
+
+<div class="container" id="contacto">
+    <h2 class="text-center">Contáctanos</h2>
+
+    <div class="row">
+
+        <div class="col-md-6">
+            <div class="card-status">
+                <h3>Recolección en Costa Rica</h3>
+                <p><i class="fa-solid fa-phone"></i> +506 8593-6114</p>
+                <p><i class="fa-solid fa-envelope"></i> shoestogo.cr.oficial@gmail.com</p>
+            </div>
+        </div>
+
+        <div class="col-md-6">
+            <form id="contactForm">
+                <h3>Envíanos un mensaje</h3>
+
+                <input type="text" id="cNombre" class="form-control"
+                    placeholder="Nombre completo" required><br>
+
+                <input type="tel" id="cTelefono" class="form-control"
+                    placeholder="Teléfono" required><br>
+
+                <textarea id="cMensaje" class="form-control"
+                    placeholder="Mensaje..." required></textarea><br>
+
+                <button type="submit" class="btn btn-primary btn-block">
+                    📩 Enviar por Correo
+                </button>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+
+<!-- ============================= -->
+<!-- ☰ MENÚ FLOTANTE -->
+<!-- ============================= -->
+
+<div class="floating-menu">
+
+    <button class="main-float-btn" onclick="toggleMenu()">
+        <i class="fa-solid fa-bars"></i>
+    </button>
+
+    <a href="https://wa.me/50685936114" target="_blank" class="float-option whatsapp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <a href="https://www.instagram.com/shoes_to_go_cr/" target="_blank" class="float-option instagram">
+        <i class="fa-brands fa-instagram"></i>
+    </a>
+
+    <a href="https://www.tiktok.com/@shoes.to.go1" target="_blank" class="float-option tiktok">
+        <i class="fa-brands fa-tiktok"></i>
+    </a>
+
+    <a href="https://www.facebook.com/" target="_blank" class="float-option facebook">
+        <i class="fa-brands fa-facebook-f"></i>
+    </a>
+
+    <a href="html/reservas.html" class="float-option calendar">
+        <i class="fa-solid fa-calendar-check"></i>
+    </a>
+
+</div>
+
+
+<!-- ============================= -->
+<!-- ✅ FOOTER -->
+<!-- ============================= -->
+
+<div class="footer">
+    © 2026 Shoes To Go | Limpieza Profesional de Tenis en Costa Rica
+</div>
+
+
+<!-- ============================= -->
+<!-- ✅ SCRIPTS -->
+<!-- ============================= -->
+
+<script>
+/* FAQ acordeón */
+document.querySelectorAll(".faq-question").forEach(btn => {
+    btn.addEventListener("click", () => {
+        const item = btn.parentElement;
+        document.querySelectorAll(".faq-item").forEach(faq => {
+            if (faq !== item) faq.classList.remove("active");
+        });
+        item.classList.toggle("active");
+    });
+});
+
+/* Formulario correo */
+document.getElementById("contactForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    let nombre = document.getElementById("cNombre").value;
+    let telefono = document.getElementById("cTelefono").value;
+    let mensaje = document.getElementById("cMensaje").value;
+
+    let mailto =
+        `mailto:shoestogo.cr.oficial@gmail.com?subject=Mensaje Shoes To Go&body=` +
+        encodeURIComponent(
+            `Nombre: ${nombre}\nTeléfono: ${telefono}\n\nMensaje:\n${mensaje}`
+        );
+
+    window.location.href = mailto;
+});
+
+/* Menú flotante */
+function toggleMenu() {
+    document.querySelector(".floating-menu").classList.toggle("active");
+}
+
+/* ============================= */
+/* 🌙 DARK MODE GLOBAL */
+/* ============================= */
+
+function toggleDarkMode() {
+
+    document.body.classList.toggle("dark-mode");
+
+    if (document.body.classList.contains("dark-mode")) {
+        localStorage.setItem("modoOscuro", "true");
+    } else {
+        localStorage.setItem("modoOscuro", "false");
+    }
+}
+
+/* ============================= */
+/* ✅ APLICAR AUTOMÁTICO AL ABRIR */
+/* ============================= */
+
+window.onload = function () {
+
+    if (localStorage.getItem("modoOscuro") === "true") {
+        document.body.classList.add("dark-mode");
+    }
+
+};
+
+window.onload = function() {
+    if (localStorage.getItem("modoOscuro") === "true") {
+        document.body.classList.add("dark-mode");
+    }
+};
+</script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</body>
+</html>
