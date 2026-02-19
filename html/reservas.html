@@ -1,24 +1,23 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Reservas | Shoes To Go</title>
-
-  <!-- Font Awesome -->
-  <link rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-
-  <!-- Icono pestaña -->
-  <link rel="icon" type="image/png" href="../img/logo-chat.png">
-
-  <!-- Bootstrap -->
-  <link rel="stylesheet"
-    href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-
-  <!-- CSS Principal -->
-  <link rel="stylesheet" href="../style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas | Shoes To Go</title>
+  
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+    <!-- Icono pestaña -->
+    <link rel="icon" type="image/png" href="../img/logo-chat.png">
+  
+    <!-- Bootstrap -->
+    <link rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  
+    <!-- CSS Principal -->
+    <link rel="stylesheet" href="../style.css">
 </head>
 
 <body>
@@ -124,15 +123,13 @@
           </select>
           <br>
 
-          <h3>📍 Zona de Recolección</h3>
+          <h3>📍 Zona de Envío</h3>
           <select id="zona" class="form-control" required>
-            <option value="">Selecciona tu zona</option>
-            <option value="0">San José Centro (Gratis)</option>
-            <option value="500">Heredia Centro (+₡500)</option>
-            <option value="800">Alajuela Centro (+₡800)</option>
-            <option value="800">Cartago Centro (+₡800)</option>
-            <option value="no">Fuera del GAM ❌</option>
+              <option value="">Selecciona tu zona</option>
+              <option value="1850">GAM (₡1.850)</option>
+              <option value="2150">Fuera del GAM (₡2.150)</option>
           </select>
+
           <br>
 
           <h3>💰 Total estimado</h3>
@@ -198,128 +195,135 @@
   <!-- ✅ SCRIPT -->
   <!-- ============================= -->
   <script>
-    let precioServicio = 0;
-    let extraZona = 0;
-    let total = 0;
+let precioServicio = 0;
+let costoEnvio = 0;
+let total = 0;
 
-    /* ⏰ HORAS CADA 30 MIN */
-    function cargarHoras() {
-      let horaSelect = document.getElementById("hora");
+/* ⏰ HORAS CADA 30 MIN */
+function cargarHoras() {
+  let horaSelect = document.getElementById("hora");
+  let start = 9 * 60;
+  let end = 16 * 60;
+  let interval = 30;
 
-      let start = 9 * 60;
-      let end = 16 * 60;
-      let interval = 30;
+  for (let i = start; i <= end; i += interval) {
+    let horas = Math.floor(i / 60);
+    let minutos = i % 60;
 
-      for (let i = start; i <= end; i += interval) {
+    let ampm = horas >= 12 ? "PM" : "AM";
+    let hora12 = horas > 12 ? horas - 12 : horas;
+    if (hora12 === 0) hora12 = 12;
 
-        let horas = Math.floor(i / 60);
-        let minutos = i % 60;
+    let texto = `${hora12}:${minutos.toString().padStart(2, "0")} ${ampm}`;
 
-        let ampm = horas >= 12 ? "PM" : "AM";
-        let hora12 = horas > 12 ? horas - 12 : horas;
-        if (hora12 === 0) hora12 = 12;
+    let option = document.createElement("option");
+    option.value = texto;
+    option.textContent = texto;
+    horaSelect.appendChild(option);
+  }
+}
 
-        let texto = `${hora12}:${minutos.toString().padStart(2, "0")} ${ampm}`;
+/* 💰 CALCULAR TOTAL */
+function calcularTotal() {
 
-        let option = document.createElement("option");
-        option.value = texto;
-        option.textContent = texto;
-        horaSelect.appendChild(option);
-      }
-    }
+  // 🚀 Envío GRATIS si el servicio es Familiar
+  if (precioServicio >= 12000) {
+    costoEnvio = 0;
+  }
 
-    /* 💰 CALCULAR TOTAL */
-    function calcularTotal() {
-      total = precioServicio + extraZona;
-      document.getElementById("totalPrecio").innerText =
-        "₡" + total.toLocaleString();
-    }
+  total = precioServicio + costoEnvio;
 
-    /* Servicio */
-    document.getElementById("servicio").addEventListener("change", function () {
-      precioServicio = parseInt(this.value) || 0;
-      calcularTotal();
-    });
+  document.getElementById("totalPrecio").innerText =
+    "₡" + total.toLocaleString();
+}
 
-    /* Zona */
-    document.getElementById("zona").addEventListener("change", function () {
+/* Servicio */
+document.getElementById("servicio").addEventListener("change", function () {
+  precioServicio = parseInt(this.value) || 0;
+  calcularTotal();
+});
 
-      if (this.value === "no") {
-        alert("⚠️ Por ahora solo recogemos dentro del GAM.");
-        this.value = "";
-        extraZona = 0;
-      } else {
-        extraZona = parseInt(this.value) || 0;
-      }
+/* Zona */
+document.getElementById("zona").addEventListener("change", function () {
+  costoEnvio = parseInt(this.value) || 0;
+  calcularTotal();
+});
 
-      calcularTotal();
-    });
+/* 📋 MOSTRAR RESUMEN */
+function mostrarResumen() {
 
-    /* 📋 MOSTRAR RESUMEN */
-    function mostrarResumen() {
+  let fecha = document.getElementById("fecha").value;
+  let hora = document.getElementById("hora").value;
+  let servicioTexto = document.getElementById("servicio").selectedOptions[0].text;
+  let zonaTexto = document.getElementById("zona").selectedOptions[0].text;
 
-      let fecha = document.getElementById("fecha").value;
-      let hora = document.getElementById("hora").value;
-      let servicioTexto = document.getElementById("servicio").selectedOptions[0].text;
-      let zonaTexto = document.getElementById("zona").selectedOptions[0].text;
+  let nombre = document.getElementById("nombre").value;
+  let telefono = document.getElementById("telefono").value;
+  let direccion = document.getElementById("direccionCliente").value;
 
-      let nombre = document.getElementById("nombre").value;
-      let telefono = document.getElementById("telefono").value;
-      let direccion = document.getElementById("direccionCliente").value;
+  if (!fecha || !hora || !nombre || !telefono || !direccion) {
+    alert("Completa todos los campos antes de continuar.");
+    return;
+  }
 
-      if (!fecha || !hora || !nombre || !telefono || !direccion) {
-        alert("Completa todos los campos antes de continuar.");
-        return;
-      }
+  document.getElementById("resumenTexto").innerHTML =
+    `<strong>📅 Fecha:</strong> ${fecha}<br>` +
+    `<strong>⏰ Hora:</strong> ${hora}<br>` +
+    `<strong>🧼 Servicio:</strong> ${servicioTexto}<br>` +
+    `<strong>🚚 Envío:</strong> ${precioServicio >= 12000 ? "GRATIS 🎉" : zonaTexto}<br>` +
+    `<strong>📍 Dirección:</strong> ${direccion}<br><br>` +
+    `<strong>💰 Total:</strong> ₡${total.toLocaleString()}`;
 
-      document.getElementById("resumenTexto").innerHTML =
-        `<strong>📅 Fecha:</strong> ${fecha}<br>` +
-        `<strong>⏰ Hora:</strong> ${hora}<br>` +
-        `<strong>🧼 Servicio:</strong> ${servicioTexto}<br>` +
-        `<strong>📍 Zona:</strong> ${zonaTexto}<br>` +
-        `<strong>📍 Dirección:</strong> ${direccion}<br><br>` +
-        `<strong>💰 Total:</strong> ₡${total.toLocaleString()}`;
+  document.getElementById("resumenBox").style.display = "block";
+}
 
-      document.getElementById("resumenBox").style.display = "block";
-    }
+/* 📩 ENVIAR WHATSAPP */
+document.getElementById("reservaForm").addEventListener("submit", function (e) {
+  e.preventDefault();
 
-    /* 📩 ENVIAR WHATSAPP */
-    document.getElementById("reservaForm").addEventListener("submit", function (e) {
-      e.preventDefault();
+  let fecha = document.getElementById("fecha").value;
+  let hora = document.getElementById("hora").value;
+  let servicio = document.getElementById("servicio");
+  let zona = document.getElementById("zona");
 
-      let texto =
-        `Hola Shoes To Go 👟✨ quiero agendar una limpieza:\n\n` +
-        `📅 Fecha: ${fecha.value}\n` +
-        `⏰ Hora: ${hora.value}\n\n` +
-        `🧼 Servicio: ${servicio.selectedOptions[0].text}\n` +
-        `📍 Zona: ${zona.selectedOptions[0].text}\n\n` +
-        `👤 Cliente: ${nombre.value}\n` +
-        `📲 Teléfono: ${telefono.value}\n` +
-        `📍 Dirección: ${direccionCliente.value}\n\n` +
-        `💰 Total estimado: ₡${total.toLocaleString()}\n\n` +
-        `Quedo atento/a para confirmar 🙌`;
+  let nombre = document.getElementById("nombre").value;
+  let telefono = document.getElementById("telefono").value;
+  let direccion = document.getElementById("direccionCliente").value;
 
-      window.open(
-        "https://wa.me/50685936114?text=" + encodeURIComponent(texto),
-        "_blank"
-      );
-    });
+  let texto =
+    `Hola Shoes To Go 👟✨ quiero agendar una limpieza:\n\n` +
+    `📅 Fecha: ${fecha}\n` +
+    `⏰ Hora: ${hora}\n\n` +
+    `🧼 Servicio: ${servicio.selectedOptions[0].text}\n` +
+    `🚚 Envío: ${precioServicio >= 12000 ? "GRATIS 🎉" : zona.selectedOptions[0].text}\n\n` +
+    `👤 Cliente: ${nombre}\n` +
+    `📲 Teléfono: ${telefono}\n` +
+    `📍 Dirección: ${direccion}\n\n` +
+    `💰 Total estimado: ₡${total.toLocaleString()}\n\n` +
+    `Quedo atento/a para confirmar 🙌`;
 
-    /* 🌙 DARK MODE */
-    function toggleDarkMode() {
-      document.body.classList.toggle("dark-mode");
-      localStorage.setItem("modoOscuro", document.body.classList.contains("dark-mode"));
-    }
+  window.open(
+    "https://wa.me/50685936114?text=" + encodeURIComponent(texto),
+    "_blank"
+  );
+});
 
-    /* Aplicar al cargar */
-    window.onload = function () {
-      cargarHoras();
+/* 🌙 DARK MODE */
+function toggleDarkMode() {
+  document.body.classList.toggle("dark-mode");
+  localStorage.setItem("modoOscuro", document.body.classList.contains("dark-mode"));
+}
 
-      if (localStorage.getItem("modoOscuro") === "true") {
-        document.body.classList.add("dark-mode");
-      }
-    };
-  </script>
+/* Aplicar al cargar */
+window.onload = function () {
+  cargarHoras();
+
+  if (localStorage.getItem("modoOscuro") === "true") {
+    document.body.classList.add("dark-mode");
+  }
+};
+</script>
+
 
   <!-- Bootstrap Scripts -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
