@@ -218,9 +218,7 @@ form {
     max-width: 500px;
     height: 320px;
     object-fit: cover;
-    border-radius: 18px;
     margin: auto;
-    box-shadow: 0 10px 20px rgba(0,0,0,0.2);
 }
 
 .carousel-inner {
