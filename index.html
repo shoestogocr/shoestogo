@@ -175,23 +175,29 @@
       <!-- Lista de zonas -->
         <div class="col-md-5">
             <div class="card-status">
-
+            
                 <h3>📍 Zonas disponibles</h3>
-                
+
                 <ul style="font-size:16px; line-height:2;">
-                    <li>✅ GAM (+1850)</li>
-                    <li>✅ FGAM (+₡2150)</li>
+                    <li>✅ GAM (+₡1850)</li>
+                    <li>✅ Fuera del GAM (+₡2150)</li>
                 </ul>
-              
+            
                 <p style="margin-top:15px;">
-                    ¿No estás seguro? Escríbenos y te confirmamos en segundos 👇
+                    Escribe tu ubicación exacta y te confirmamos en segundos 👇
                 </p>
-              
-                <a href="https://wa.me/50685936114"
-                    target="_blank"
-                    class="btn btn-primary btn-block">
+            
+                <input type="text" 
+                       id="ubicacionConsulta" 
+                       class="form-control"
+                       placeholder="Ej: Tibás, 200m norte del parque">
+            
+                <br>
+            
+                <button onclick="consultarUbicacion()" 
+                        class="btn btn-primary btn-block">
                     📲 Consultar por WhatsApp
-                </a>
+                </button>
             
             </div>
         </div>
@@ -625,6 +631,28 @@ window.onload = function() {
 $('.carousel').carousel({
   interval: 4000
 });
+
+function consultarUbicacion() {
+
+    let ubicacion = document.getElementById("ubicacionConsulta").value;
+
+    if (!ubicacion) {
+        alert("Por favor escribe tu ubicación antes de consultar.");
+        return;
+    }
+
+    let mensaje =
+        "Hola Shoes To Go 👟✨\n\n" +
+        "Quiero consultar si mi ubicación está dentro de su zona de cobertura.\n\n" +
+        "📍 Mi ubicación es:\n" +
+        ubicacion + "\n\n" +
+        "Quedo atento/a a la confirmación 🙌";
+
+    window.open(
+        "https://wa.me/50685936114?text=" + encodeURIComponent(mensaje),
+        "_blank"
+    );
+}
 </script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
