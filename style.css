@@ -451,21 +451,6 @@ form {
     border: 0;
 }
 
-/* ============================= */
-/* ✨ ANIMACIÓN SWIPE MAPA */
-/* ============================= */
-
-.swipe-up {
-    opacity: 0;
-    transform: translateY(40px);
-    transition: all 0.8s ease;
-}
-
-.swipe-up.show {
-    opacity: 1;
-    transform: translateY(0);
-}
-
 
 /* ============================= */
 /* 📱 RESPONSIVE */
