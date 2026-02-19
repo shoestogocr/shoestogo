@@ -430,34 +430,42 @@ form {
 }
 
 /* ============================= */
-/* 🗺️ MAPA PERFECTO RESPONSIVE */
+/* 🗺️ MAPA RESPONSIVE FIX FINAL */
 /* ============================= */
 
-.map-box {
+.map-container {
+    position: relative;
     width: 100%;
-    height: 350px;
+    padding-bottom: 56.25%; /* Proporción 16:9 */
     border-radius: 18px;
     overflow: hidden;
     box-shadow: 0 8px 20px rgba(0,0,0,0.15);
 }
 
-.map-box iframe {
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
     border: 0;
 }
 
-/* 📱 CELULAR */
-@media (max-width: 768px) {
+/* ============================= */
+/* ✨ ANIMACIÓN SWIPE MAPA */
+/* ============================= */
 
-    .map-box {
-        height: 260px;
-    }
-
-    #zonas .card-status {
-        padding: 12px !important;
-    }
+.swipe-up {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
 }
+
+.swipe-up.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
 
 /* ============================= */
 /* 📱 RESPONSIVE */
