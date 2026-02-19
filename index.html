@@ -181,7 +181,6 @@
                 <ul style="font-size:16px; line-height:2;">
                     <li>✅ GAM (+1850)</li>
                     <li>✅ FGAM (+₡2150)</li>
-                    
                 </ul>
               
                 <p style="margin-top:15px;">
@@ -203,17 +202,19 @@
 
                 <h3>🗺️ Mapa de cobertura</h3>
                 
-                <iframe 
-                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d77780.521378384
-                    07!2d-84.0855259807296!3d9.937021192641536!2m3!1f0!2f0!3f0!3m2!1i1024!2i76
-                    8!4f13.1!3m3!1m2!1s0x8fa0e342c50d15c5%3A0xe6746a6a9f11b882!2zU2FuIEpvc8Op!
-                    5e1!3m2!1ses!2scr!4v1771519523646!5m2!1ses!2scr" width="600" height="450" 
-                    style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-ref
-                    errer-when-downgrade"
-                    allowfullscreen=""
-                    loading="lazy">
-                </iframe>
-              
+                <div class="map-container">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d77780.521378384
+                        07!2d-84.0855259807296!3d9.937021192641536!2m3!1f0!2f0!3f0!3m2!1i1024!2i76
+                        8!4f13.1!3m3!1m2!1s0x8fa0e342c50d15c5%3A0xe6746a6a9f11b882!2zU2FuIEpvc8Op!
+                        5e1!3m2!1ses!2scr!4v1771519523646!5m2!1ses!2scr" width="600" height="450" 
+                        style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-ref
+                        errer-when-downgrade"
+                        allowfullscreen=""
+                        loading="lazy">
+                    </iframe>
+                </div>
+                
                 <p style="margin-top:10px;">
                     Recogemos en puntos principales del GAM.
                 </p>
@@ -273,25 +274,58 @@
 
     <div id="sliderZapatos" class="carousel slide" data-ride="carousel">
 
+        <!-- Indicadores -->
         <ol class="carousel-indicators">
             <li data-target="#sliderZapatos" data-slide-to="0" class="active"></li>
             <li data-target="#sliderZapatos" data-slide-to="1"></li>
+            <li data-target="#sliderZapatos" data-slide-to="2"></li>
+            <li data-target="#sliderZapatos" data-slide-to="3"></li>
+            <li data-target="#sliderZapatos" data-slide-to="4"></li>
+            <li data-target="#sliderZapatos" data-slide-to="5"></li>
         </ol>
 
+        <!-- Slides -->
         <div class="carousel-inner">
 
+            <!-- 1 -->
             <div class="item active text-center">
-                <img src="img/antes.png" class="slider-img">
+                <img src="img/antes1.jpeg" class="slider-img">
                 <h3>Antes</h3>
             </div>
 
+            <!-- 2 -->
             <div class="item text-center">
-                <img src="img/despues.png" class="slider-img">
+                <img src="img/antes1.jpeg" class="slider-img">
+                <h3>Después</h3>
+            </div>
+
+            <!-- 3 -->
+            <div class="item text-center">
+                <img src="img/antes2.jpeg" class="slider-img">
+                <h3>Antes</h3>
+            </div>
+
+            <!-- 4 -->
+            <div class="item text-center">
+                <img src="img/antes2.jpeg" class="slider-img">
+                <h3>Después</h3>
+            </div>
+
+            <!-- 5 -->
+            <div class="item text-center">
+                <img src="img/antes3.jpeg" class="slider-img">
+                <h3>Antes</h3>
+            </div>
+
+            <!-- 6 -->
+            <div class="item text-center">
+                <img src="img/antes3.jpeg" class="slider-img">
                 <h3>Después</h3>
             </div>
 
         </div>
 
+        <!-- Controles -->
         <a class="left carousel-control" href="#sliderZapatos" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left"></span>
         </a>
@@ -587,6 +621,10 @@ window.onload = function() {
         document.body.classList.add("dark-mode");
     }
 };
+
+$('.carousel').carousel({
+  interval: 4000
+});
 </script>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
