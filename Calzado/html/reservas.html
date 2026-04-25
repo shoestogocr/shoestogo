@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas | Shoes To Go</title>
+  
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  
+    <!-- Icono pestaña -->
+    <link rel="icon" type="image/png" href="../img/logo-chat.png">
+  
+    <!-- Bootstrap -->
+    <link rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  
+    <!-- CSS Principal -->
+    <link rel="stylesheet" href="../style.css">
+</head>
+
+<body>
+
+  <!-- ============================= -->
+  <!-- ✅ NAVBAR -->
+  <!-- ============================= -->
+  <nav class="navbar navbar-inverse">
+    <div class="container">
+
+      <div class="navbar-header">
+
+        <!-- Botón hamburguesa -->
+        <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+
+        <!-- Logo -->
+        <a class="navbar-brand" href="../index.html">
+          Shoes To Go
+        </a>
+      </div>
+
+      <!-- Menú -->
+      <div class="collapse navbar-collapse" id="menu">
+
+        <ul class="nav navbar-nav">
+          <li>
+            <a href="../index.html">
+              <i class="fa-solid fa-house"></i> Inicio
+            </a>
+          </li>
+
+          <li>
+            <a href="../index.html#precios">
+              <i class="fa-solid fa-tags"></i> Paquetes
+            </a>
+          </li>
+
+          <li>
+            <a href="../index.html#contacto">
+              <i class="fa-solid fa-phone"></i> Contacto
+            </a>
+          </li>
+        </ul>
+
+        <!-- Dark Mode -->
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <a href="#" onclick="toggleDarkMode()" class="dark-btn">
+              🌙
+            </a>
+          </li>
+        </ul>
+
+      </div>
+    </div>
+  </nav>
+
+
+  <!-- ============================= -->
+  <!-- ✅ HERO -->
+  <!-- ============================= -->
+  <div class="container">
+    <div class="jumbotron text-center">
+      <h1>Reserva tu Limpieza 👟✨</h1>
+      <p>
+        Agenda en menos de 1 minuto.<br>
+        Nosotros recogemos tus tenis y los devolvemos como nuevos 😮‍💨🔥
+      </p>
+    </div>
+  </div>
+
+
+  <!-- ============================= -->
+  <!-- ✅ FORMULARIO -->
+  <!-- ============================= -->
+  <div class="container">
+    <div class="row">
+
+      <!-- FECHA / HORA / SERVICIO -->
+      <div class="col-md-6">
+        <div class="card-status">
+
+          <h3>📅 Fecha de Recolección</h3>
+          <input type="date" id="fecha" class="form-control" required>
+          <br>
+
+          <h3>⏰ Hora Disponible</h3>
+          <select id="hora" class="form-control" required>
+            <option value="">Selecciona una hora</option>
+          </select>
+          <br>
+
+          <h3>🧼 Servicio</h3>
+          <select id="servicio" class="form-control" required>
+            <option value="">Selecciona un paquete</option>
+            <option value="5000">Básico ₡5.000</option>
+            <option value="7000">Premium ₡7.000</option>
+            <option value="12000">Familiar ₡12.000 (3 pares)</option>
+          </select>
+          <br>
+
+          <h3>📍 Zona de Envío</h3>
+          <select id="zona" class="form-control" required>
+              <option value="">Selecciona tu zona</option>
+              <option value="1850">GAM (₡1.850)</option>
+              <option value="2150">Fuera del GAM (₡2.150)</option>
+          </select>
+
+          <br>
+
+          <h3>💰 Total estimado</h3>
+          <p id="totalPrecio" style="font-size:28px;font-weight:bold;">
+            ₡0
+          </p>
+
+        </div>
+      </div>
+
+
+      <!-- DATOS CLIENTE -->
+      <div class="col-md-6">
+        <form id="reservaForm">
+
+          <h3>👤 Datos del Cliente</h3>
+
+          <input type="text" id="nombre" class="form-control"
+            placeholder="Nombre completo" required><br>
+
+          <input type="tel" id="telefono" class="form-control"
+            placeholder="Número de WhatsApp" required><br>
+
+          <input type="text" id="direccionCliente" class="form-control"
+            placeholder="Dirección exacta (ej: Tibás, 200m norte del parque)" required><br>
+
+          <textarea id="mensaje" class="form-control"
+            placeholder="Tipo de tenis (Nike, Adidas...) + detalles extra"></textarea><br>
+
+          <!-- Botón resumen -->
+          <button type="button" class="btn btn-success btn-block" onclick="mostrarResumen()">
+            ✅ Ver resumen antes de enviar
+          </button>
+
+          <br>
+
+          <!-- Resumen -->
+          <div id="resumenBox" class="card-status" style="display:none;">
+            <h3>📋 Resumen</h3>
+            <p id="resumenTexto"></p>
+
+            <button type="submit" class="btn btn-primary btn-block">
+              📩 Confirmar por WhatsApp
+            </button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ============================= -->
+  <!-- FOOTER -->
+  <!-- ============================= -->
+  <div class="footer">
+    © 2026 Shoes To Go | Reservas Online 👟✨
+  </div>
+
+
+  <!-- ============================= -->
+  <!-- ✅ SCRIPT -->
+  <!-- ============================= -->
+  <script>
+let precioServicio = 0;
+let costoEnvio = 0;
+let total = 0;
+
+/* ⏰ HORAS CADA 30 MIN */
+function cargarHoras() {
+  let horaSelect = document.getElementById("hora");
+  let start = 9 * 60;
+  let end = 16 * 60;
+  let interval = 30;
+
+  for (let i = start; i <= end; i += interval) {
+    let horas = Math.floor(i / 60);
+    let minutos = i % 60;
+
+    let ampm = horas >= 12 ? "PM" : "AM";
+    let hora12 = horas > 12 ? horas - 12 : horas;
+    if (hora12 === 0) hora12 = 12;
+
+    let texto = `${hora12}:${minutos.toString().padStart(2, "0")} ${ampm}`;
+
+    let option = document.createElement("option");
+    option.value = texto;
+    option.textContent = texto;
+    horaSelect.appendChild(option);
+  }
+}
+
+/* 💰 CALCULAR TOTAL */
+function calcularTotal() {
+
+  // 🚀 Envío GRATIS si el servicio es Familiar
+  if (precioServicio >= 12000) {
+    costoEnvio = 0;
+  }
+
+  total = precioServicio + costoEnvio;
+
+  document.getElementById("totalPrecio").innerText =
+    "₡" + total.toLocaleString();
+}
+
+/* Servicio */
+document.getElementById("servicio").addEventListener("change", function () {
+  precioServicio = parseInt(this.value) || 0;
+  calcularTotal();
+});
+
+/* Zona */
+document.getElementById("zona").addEventListener("change", function () {
+  costoEnvio = parseInt(this.value) || 0;
+  calcularTotal();
+});
+
+/* 📋 MOSTRAR RESUMEN */
+function mostrarResumen() {
+
+  let fecha = document.getElementById("fecha").value;
+  let hora = document.getElementById("hora").value;
+  let servicioTexto = document.getElementById("servicio").selectedOptions[0].text;
+  let zonaTexto = document.getElementById("zona").selectedOptions[0].text;
+
+  let nombre = document.getElementById("nombre").value;
+  let telefono = document.getElementById("telefono").value;
+  let direccion = document.getElementById("direccionCliente").value;
+
+  if (!fecha || !hora || !nombre || !telefono || !direccion) {
+    alert("Completa todos los campos antes de continuar.");
+    return;
+  }
+
+  document.getElementById("resumenTexto").innerHTML =
+    `<strong>📅 Fecha:</strong> ${fecha}<br>` +
+    `<strong>⏰ Hora:</strong> ${hora}<br>` +
+    `<strong>🧼 Servicio:</strong> ${servicioTexto}<br>` +
+    `<strong>🚚 Envío:</strong> ${precioServicio >= 12000 ? "GRATIS 🎉" : zonaTexto}<br>` +
+    `<strong>📍 Dirección:</strong> ${direccion}<br><br>` +
+    `<strong>💰 Total:</strong> ₡${total.toLocaleString()}`;
+
+  document.getElementById("resumenBox").style.display = "block";
+}
+
+/* 📩 ENVIAR WHATSAPP */
+document.getElementById("reservaForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+
+  let fecha = document.getElementById("fecha").value;
+  let hora = document.getElementById("hora").value;
+  let servicio = document.getElementById("servicio");
+  let zona = document.getElementById("zona");
+
+  let nombre = document.getElementById("nombre").value;
+  let telefono = document.getElementById("telefono").value;
+  let direccion = document.getElementById("direccionCliente").value;
+
+  let texto =
+    `Hola Shoes To Go 👟✨ quiero agendar una limpieza:\n\n` +
+    `📅 Fecha: ${fecha}\n` +
+    `⏰ Hora: ${hora}\n\n` +
+    `🧼 Servicio: ${servicio.selectedOptions[0].text}\n` +
+    `🚚 Envío: ${precioServicio >= 12000 ? "GRATIS 🎉" : zona.selectedOptions[0].text}\n\n` +
+    `👤 Cliente: ${nombre}\n` +
+    `📲 Teléfono: ${telefono}\n` +
+    `📍 Dirección: ${direccion}\n\n` +
+    `💰 Total estimado: ₡${total.toLocaleString()}\n\n` +
+    `Quedo atento/a para confirmar 🙌`;
+
+  window.open(
+    "https://wa.me/50685936114?text=" + encodeURIComponent(texto),
+    "_blank"
+  );
+});
+
+/* 🌙 DARK MODE */
+function toggleDarkMode() {
+  document.body.classList.toggle("dark-mode");
+  localStorage.setItem("modoOscuro", document.body.classList.contains("dark-mode"));
+}
+
+/* Aplicar al cargar */
+window.onload = function () {
+  cargarHoras();
+
+  if (localStorage.getItem("modoOscuro") === "true") {
+    document.body.classList.add("dark-mode");
+  }
+};
+</script>
+
+
+  <!-- Bootstrap Scripts -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</body>
+
+</html>

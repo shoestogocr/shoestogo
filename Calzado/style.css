@@ -1,0 +1,592 @@
+/* ============================= */
+/* ✅ ESTILO GENERAL */
+/* ============================= */
+
+body {
+    background: linear-gradient(120deg, #f5f7fa, #e4ebf5);
+    font-family: "Segoe UI", Tahoma, sans-serif;
+    color: #333;
+    padding-bottom: 80px;
+}
+
+.container {
+    margin-top: 40px;
+    animation: fadeIn 0.6s ease-in-out;
+}
+
+/* ============================= */
+/* ✅ NAVBAR CORPORATIVA PREMIUM */
+/* ============================= */
+
+.navbar {
+    padding: 10px 0;
+    border-radius: 0 !important;
+    margin-bottom: 0 !important;
+}
+
+.navbar-inverse {
+    background: #1f3c88 !important;
+    border: none !important;
+    border-radius: 0 !important;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.18);
+}
+
+/* Logo */
+.navbar-inverse .navbar-brand {
+    color: white !important;
+    font-weight: 900;
+    font-size: 26px !important;
+    letter-spacing: 1px;
+    padding: 18px 15px !important;
+}
+
+/* Links */
+.navbar-inverse .navbar-nav > li > a {
+    color: white !important;
+    font-weight: 600;
+    padding: 10px 18px !important;
+    margin: 8px 6px !important;
+    border-radius: 14px;
+    transition: all 0.3s ease;
+}
+
+/* Hover */
+.navbar-inverse .navbar-nav > li > a:hover {
+    background: rgba(255,255,255,0.20) !important;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.18);
+    transform: translateY(-2px);
+}
+
+/* ============================= */
+/* ✅ DROPDOWN NAVBAR PREMIUM */
+/* ============================= */
+
+.dropdown-menu {
+    border-radius: 14px !important;
+    padding: 10px 0;
+    border: none;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+
+.dropdown-menu li a {
+    padding: 12px 18px;
+    font-weight: 600;
+    color: #1f3c88 !important;
+    transition: 0.3s;
+}
+
+.dropdown-menu li a:hover {
+    background: #f2f5ff !important;
+    color: #4a69ff !important;
+}
+
+/* Botón Dark Mode */
+.dark-btn {
+    font-size: 20px !important;
+    padding: 10px 14px !important;
+    margin-top: 6px !important;
+    border-radius: 50% !important;
+}
+
+.dark-btn:hover {
+    background: rgba(255,255,255,0.25) !important;
+}
+
+/* Responsive navbar */
+@media (max-width: 768px) {
+    .navbar-inverse .navbar-nav > li > a {
+        margin: 6px 0 !important;
+        text-align: center;
+        border-radius: 12px;
+    }
+}
+
+/* ============================= */
+/* ✅ TITULOS */
+/* ============================= */
+
+h1, h2, h3, h4 {
+    font-weight: 800;
+    color: #1f3c88;
+    margin-bottom: 20px;
+}
+
+/* ============================= */
+/* ✅ HERO / JUMBOTRON */
+/* ============================= */
+
+.jumbotron {
+    background: white;
+    border-radius: 18px;
+    padding: 40px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.jumbotron h1 {
+    font-weight: 900;
+}
+
+/* ============================= */
+/* ✅ BOTONES PREMIUM */
+/* ============================= */
+
+.btn {
+    border-radius: 50px !important;
+    padding: 12px 26px !important;
+    font-weight: 700 !important;
+    font-size: 15px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary {
+    background: linear-gradient(135deg, #4a69ff, #1f3c88) !important;
+    border: none !important;
+}
+
+.btn-primary:hover {
+    background: linear-gradient(135deg, #1f3c88, #4a69ff) !important;
+    transform: translateY(-2px);
+}
+
+.btn-lg {
+    padding: 15px 34px !important;
+    font-size: 18px !important;
+}
+
+/* Botón Reservar igual en paquetes */
+.btn-reservar {
+    background: linear-gradient(135deg, #4a69ff, #1f3c88) !important;
+    color: white !important;
+    border: none !important;
+    padding: 12px 28px !important;
+    border-radius: 50px !important;
+    font-weight: 800 !important;
+    display: inline-block;
+}
+
+.btn-reservar:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 18px rgba(0,0,0,0.18);
+}
+
+/* ============================= */
+/* ✅ CARDS */
+/* ============================= */
+
+.card-status {
+    background: white;
+    border-radius: 16px;
+    padding: 22px;
+    margin-bottom: 18px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+    transition: transform 0.3s ease;
+    overflow: hidden;
+}
+
+.card-status:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 12px 25px rgba(0,0,0,0.12);
+}
+
+/* ============================= */
+/* ✅ FORMULARIOS */
+/* ============================= */
+
+form {
+    background: white;
+    padding: 30px;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.form-control {
+    border-radius: 12px;
+    border: 1px solid #ccd;
+}
+
+.form-control:focus {
+    border-color: #4a69ff;
+    box-shadow: 0 0 6px rgba(74,105,255,0.4);
+}
+
+/* ============================= */
+/* 🎞️ SLIDER GALERÍA */
+/* ============================= */
+
+/* ============================= */
+/* 🎞️ GALERÍA PRO (ANTES VS DESPUÉS) */
+/* ============================= */
+
+#galeria h2 {
+    margin-bottom: 10px;
+}
+
+#galeria p {
+    margin-bottom: 30px;
+    color: #ccc;
+}
+
+/* Contenedor del carrusel */
+.carousel-inner {
+    min-height: 460px;
+}
+
+/* Cada slide centrado */
+.carousel .item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 460px;
+}
+
+/* Contenido interno (Antes vs Después) */
+.carousel .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px; /* separación entre imágenes */
+}
+
+/* IMÁGENES */
+.compare-img {
+    width: 100%;
+    max-width: 420px;   /* tamaño grande */
+    height: 320px;      /* altura uniforme */
+    object-fit: cover;  /* recorte limpio */
+    border-radius: 16px;
+    display: block;
+    margin: 10px auto;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+/* Títulos "Antes / Después" */
+.carousel h4 {
+    margin-bottom: 10px;
+}
+
+/* ============================= */
+/* 🔘 INDICADORES (puntitos) */
+/* ============================= */
+
+.carousel-indicators {
+    bottom: -10px; /* centrados abajo */
+}
+
+.carousel-indicators li {
+    background-color: #aaa;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.carousel-indicators .active {
+    background-color: #4a69ff;
+}
+
+/* ============================= */
+/* ⬅️➡️ FLECHAS */
+/* ============================= */
+
+.carousel-control {
+    background: none !important;
+}
+
+.carousel-control .glyphicon {
+    font-size: 30px;
+    color: #4a69ff;
+}
+
+/* ============================= */
+/* 📱 RESPONSIVE (celular) */
+/* ============================= */
+
+@media (max-width: 768px) {
+
+    .carousel .row {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .compare-img {
+        max-width: 90%;
+        height: 250px;
+    }
+
+    .carousel-inner {
+        min-height: 520px;
+    }
+}
+
+/* Títulos */
+.carousel h4 {
+    margin-bottom: 10px;
+}
+
+/* ============================= */
+/* ⭐ TESTIMONIOS */
+/* ============================= */
+
+.stars i {
+    color: gold;
+    font-size: 18px;
+    margin: 2px;
+}
+
+/* ============================= */
+/* ❓ FAQ ACORDEÓN */
+/* ============================= */
+
+.faq-item {
+    background: white;
+    border-radius: 16px;
+    margin-bottom: 15px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.08);
+    overflow: hidden;
+}
+
+.faq-question {
+    width: 100%;
+    padding: 18px 20px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: 800;
+    color: #1f3c88;
+    text-align: left;
+    cursor: pointer;
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    padding: 0 20px;
+    font-size: 15px;
+    color: #444;
+    line-height: 1.6;
+    transition: max-height 0.4s ease;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 200px;
+    padding: 0 20px 18px;
+}
+
+/* ============================= */
+/* ✅ FOOTER */
+/* ============================= */
+
+.footer {
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: #1f3c88;
+    color: white;
+    padding: 10px 0;
+    text-align: center;
+    font-weight: 600;
+    box-shadow: 0 -4px 8px rgba(0,0,0,0.2);
+}
+
+/* ============================= */
+/* ✅ FLOATING MENU APP */
+/* ============================= */
+
+.floating-menu {
+    position: fixed;
+    bottom: 110px;
+    right: 20px;
+    z-index: 999;
+}
+
+/* Botón principal */
+.main-float-btn {
+    width: 65px;
+    height: 65px;
+    border-radius: 50%;
+    border: none;
+    background: #1f3c88;
+    color: white;
+    font-size: 28px;
+    cursor: pointer;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.3);
+    transition: transform 0.3s ease;
+}
+
+.main-float-btn:hover {
+    transform: scale(1.1);
+}
+
+/* Opciones */
+.float-option {
+    position: absolute;
+    right: 0;
+    width: 55px;
+    height: 55px;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 55px;
+    font-size: 24px;
+    color: white;
+    text-decoration: none;
+    opacity: 0;
+    pointer-events: none;
+    transition: all 0.3s ease;
+}
+
+/* Colores */
+.float-option.whatsapp { background: #25d366; }
+.float-option.instagram { background: linear-gradient(135deg, #fd1d1d, #833ab4, #fcb045); }
+.float-option.tiktok { background: black; }
+.float-option.facebook { background: #1877f2; }
+.float-option.calendar { background: #4a69ff; }
+
+/* Activo */
+.floating-menu.active .float-option {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+/* Posiciones */
+.floating-menu.active .whatsapp { transform: translateY(-70px); }
+.floating-menu.active .instagram { transform: translateY(-140px); }
+.floating-menu.active .tiktok { transform: translateY(-210px); }
+.floating-menu.active .facebook { transform: translateY(-280px); }
+.floating-menu.active .calendar { transform: translateY(-350px); }
+
+/* Hover */
+.float-option:hover {
+    transform: scale(1.08);
+    box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+}
+
+/* ============================= */
+/* 🌙 DARK MODE COMPLETO */
+/* ============================= */
+
+.dark-mode {
+    background: #121212 !important;
+    color: white !important;
+}
+
+.dark-mode .jumbotron,
+.dark-mode form,
+.dark-mode .card-status,
+.dark-mode .faq-item {
+    background: #1e1e1e !important;
+    color: white !important;
+}
+
+.dark-mode h1,
+.dark-mode h2,
+.dark-mode h3,
+.dark-mode h4 {
+    color: #4a69ff !important;
+}
+
+.dark-mode .faq-question {
+    color: #4a69ff !important;
+}
+
+.dark-mode .faq-answer {
+    color: #ddd !important;
+}
+
+.dark-mode .navbar-inverse,
+.dark-mode .footer {
+    background: black !important;
+}
+
+.dark-mode .form-control {
+    background: #111 !important;
+    color: white !important;
+    border: 1px solid #444;
+}
+
+.dark-mode .dropdown-menu {
+    background: #1e1e1e !important;
+}
+
+.dark-mode .dropdown-menu li a {
+    color: white !important;
+}
+
+.dark-mode .dropdown-menu li a:hover {
+    background: #333 !important;
+}
+
+#zonas {
+  padding-top: 40px;
+  padding-bottom: 50px;
+}
+
+#zonas iframe {
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+/* ============================= */
+/* 🗺️ MAPA RESPONSIVE FIX FINAL */
+/* ============================= */
+
+.map-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; /* Proporción 16:9 */
+    border-radius: 18px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+}
+
+.map-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+#zonas select {
+    margin-bottom: 10px;
+}
+#resultadoZona {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+
+/* ============================= */
+/* 📱 RESPONSIVE */
+/* ============================= */
+
+@media (max-width: 768px) {
+    .map-responsive {
+        padding-bottom: 75%; /* más cuadrado en celular */
+    }
+}
+
+@media (max-width: 768px) {
+    .jumbotron {
+        padding: 25px;
+    }
+
+    .footer {
+        font-size: 14px;
+        padding: 12px;
+    }
+}
+
+/* ============================= */
+/* ✅ ANIMACIÓN */
+/* ============================= */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(15px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
