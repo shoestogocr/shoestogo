@@ -3,7 +3,8 @@
 /* ============================= */
 
 body {
-    background: linear-gradient(120deg, #f5f7fa, #e4ebf5);
+    background: url("img/white.png") no-repeat center center fixed;
+    background-size: cover;
     font-family: "Segoe UI", Tahoma, sans-serif;
     color: #333;
     padding-bottom: 80px;
@@ -465,7 +466,8 @@ form {
 /* ============================= */
 
 .dark-mode {
-    background: #121212 !important;
+    background: url("/img/dark.png") no-repeat center center fixed;
+    background-size: cover !important;
     color: white !important;
 }
 
