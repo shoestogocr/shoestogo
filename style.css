@@ -8,11 +8,12 @@ body {
     font-family: "Segoe UI", Tahoma, sans-serif;
     color: #333;
     padding-bottom: 80px;
+    padding-top: 80px; /* 👈 ESTO ES LA SOLUCIÓN */
 }
 
 
 .container {
-    margin-top: 40px;
+    margin-top: 20px;
     animation: fadeIn 0.6s ease-in-out;
 }
 
@@ -20,11 +21,6 @@ body {
 /* ✅ NAVBAR CORPORATIVA PREMIUM */
 /* ============================= */
 
-.navbar {
-    padding: 10px 0;
-    border-radius: 0 !important;
-    margin-bottom: 0 !important;
-}
 
 .navbar-inverse {
     background: #1f3c88 !important;
@@ -58,6 +54,8 @@ body {
     box-shadow: 0 4px 12px rgba(0,0,0,0.18);
     transform: translateY(-2px);
 }
+
+
 
 /* ============================= */
 /* ✅ DROPDOWN NAVBAR PREMIUM */
