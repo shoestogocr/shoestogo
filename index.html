@@ -202,29 +202,41 @@
             </div>
         </div>
 
-      <!-- Mapa -->
+        <!-- Mapa -->
         <div class="map-box">
-            <div class="card-status text-center">
+            <div class="col-md-7">
+                <div class="card-status">
+                    <h3>📍 Verifica tu zona</h3>
+                    <p>Selecciona tu ubicacion para validar cobertura 👇</p>
 
-                <h3>🗺️ Mapa de cobertura</h3>
-                
-                <div class="map-container">
-                    <iframe 
-                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d77780.521378384
-                        07!2d-84.0855259807296!3d9.937021192641536!2m3!1f0!2f0!3f0!3m2!1i1024!2i76
-                        8!4f13.1!3m3!1m2!1s0x8fa0e342c50d15c5%3A0xe6746a6a9f11b882!2zU2FuIEpvc8Op!
-                        5e1!3m2!1ses!2scr!4v1771519523646!5m2!1ses!2scr" width="600" height="450" 
-                        style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-ref
-                        errer-when-downgrade"
-                        allowfullscreen=""
-                        loading="lazy">
-                    </iframe>
+                    <select class="form-control" id="provincia">
+                        <option value="provincia">Provincia</option>
+                        <option value="sj">San José</option>
+                        <option value="al">Alajuela</option>
+                        <option value="hr">Heredia</option>
+                        <option value="cr">cartago</option>
+                    </select>
+
+                    <br>
+
+                    <select class="form-control" id="canton">
+                        <option value="canton">Canton</option>
+                    </select>
+
+                    <br>
+
+                    <select class="form-control" id="distrito">
+                        <option value="distrito">Distrito</option>
+                    </select>
+
+                    <br>
+                    
+                    <button onclick="verificarZona()" class="btn btn-primary btn-block">
+                        🚀 Ver Disponibilidad
+                    </button>
+
+                    <p id="resultadoZona" style="margin: top 15px;"></p>
                 </div>
-
-                <p style="margin-top:10px;">
-                    Recogemos en puntos principales del GAM.
-                </p>
-            
             </div>
         </div>
 
@@ -277,6 +289,9 @@
 
 <div class="container" id="galeria">
     <h2 class="text-center">Antes vs Después</h2>
+    <p class="text-center">
+        Mira el cambio real que logramos 👟✨
+    </p>
 
     <div id="sliderZapatos" class="carousel slide" data-ride="carousel">
 
@@ -285,53 +300,53 @@
             <li data-target="#sliderZapatos" data-slide-to="0" class="active"></li>
             <li data-target="#sliderZapatos" data-slide-to="1"></li>
             <li data-target="#sliderZapatos" data-slide-to="2"></li>
-            <li data-target="#sliderZapatos" data-slide-to="3"></li>
-            <li data-target="#sliderZapatos" data-slide-to="4"></li>
-            <li data-target="#sliderZapatos" data-slide-to="5"></li>
         </ol>
 
         <!-- Slides -->
         <div class="carousel-inner">
 
-            <!-- 1 -->
-            <div class="item active text-center">
-                <img src="img/antes1.png" class="slider-img">
-                <h3>Antes</h3>
+            <div class="item active">
+                <div class="row text-center">
+                    <div class="col-md-6">
+                        <h4>Antes</h4>
+                        <img src="img/antes.png" class="compare-img">
+                    </div>
+                    <div class="col-md-6">
+                        <h4>Después</h4>
+                        <img src="img/despues.png" class="compare-img">
+                    </div>
+                </div>
             </div>
 
-            <!-- 2 -->
-            <div class="item text-center">
-                <img src="img/antes1.png" class="slider-img">
-                <h3>Después</h3>
+            <div class="item">
+                <div class="row text-center">
+                    <div class="col-md-6">
+                        <h4>Antes</h4>
+                        <img src="img/antes1.png" class="compare-img">
+                    </div>
+                    <div class="col-md-6">
+                        <h4>Después</h4>
+                        <img src="img/despues.png" class="compare-img">
+                    </div>
+                </div>
             </div>
 
-            <!-- 3 -->
-            <div class="item text-center">
-                <img src="img/antes2.png" class="slider-img">
-                <h3>Antes</h3>
-            </div>
-
-            <!-- 4 -->
-            <div class="item text-center">
-                <img src="img/antes2.png" class="slider-img">
-                <h3>Después</h3>
-            </div>
-
-            <!-- 5 -->
-            <div class="item text-center">
-                <img src="img/antes3.png" class="slider-img">
-                <h3>Antes</h3>
-            </div>
-
-            <!-- 6 -->
-            <div class="item text-center">
-                <img src="img/antes3.png" class="slider-img">
-                <h3>Después</h3>
+            <div class="item">
+                <div class="row text-center">
+                    <div class="col-md-6">
+                        <h4>Antes</h4>
+                        <img src="img/antes3.png" class="compare-img">
+                    </div>
+                    <div class="col-md-6">
+                        <h4>Después</h4>
+                        <img src="img/despues.png" class="compare-img">
+                    </div>
+                </div>
             </div>
 
         </div>
 
-        <!-- Controles -->
+        <!-- CONTROLES (solo aquí) -->
         <a class="left carousel-control" href="#sliderZapatos" data-slide="prev">
             <span class="glyphicon glyphicon-chevron-left"></span>
         </a>
@@ -657,5 +672,11 @@ function consultarUbicacion() {
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+</script>
+
+<script src="js/zona.js"></script>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 </body>
 </html>
