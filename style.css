@@ -213,16 +213,113 @@ form {
 /* 🎞️ SLIDER GALERÍA */
 /* ============================= */
 
-.slider-img {
-    width: 100%;
-    max-width: 500px;
-    height: 320px;
-    object-fit: cover;
-    margin: auto;
+/* ============================= */
+/* 🎞️ GALERÍA PRO (ANTES VS DESPUÉS) */
+/* ============================= */
+
+#galeria h2 {
+    margin-bottom: 10px;
 }
 
+#galeria p {
+    margin-bottom: 30px;
+    color: #ccc;
+}
+
+/* Contenedor del carrusel */
 .carousel-inner {
-    min-height: 350px;
+    min-height: 460px;
+}
+
+/* Cada slide centrado */
+.carousel .item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 460px;
+}
+
+/* Contenido interno (Antes vs Después) */
+.carousel .row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 80px; /* separación entre imágenes */
+}
+
+/* IMÁGENES */
+.compare-img {
+    width: 100%;
+    max-width: 420px;   /* tamaño grande */
+    height: 320px;      /* altura uniforme */
+    object-fit: cover;  /* recorte limpio */
+    border-radius: 16px;
+    display: block;
+    margin: 10px auto;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+/* Títulos "Antes / Después" */
+.carousel h4 {
+    margin-bottom: 10px;
+}
+
+/* ============================= */
+/* 🔘 INDICADORES (puntitos) */
+/* ============================= */
+
+.carousel-indicators {
+    bottom: -10px; /* centrados abajo */
+}
+
+.carousel-indicators li {
+    background-color: #aaa;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.carousel-indicators .active {
+    background-color: #4a69ff;
+}
+
+/* ============================= */
+/* ⬅️➡️ FLECHAS */
+/* ============================= */
+
+.carousel-control {
+    background: none !important;
+}
+
+.carousel-control .glyphicon {
+    font-size: 30px;
+    color: #4a69ff;
+}
+
+/* ============================= */
+/* 📱 RESPONSIVE (celular) */
+/* ============================= */
+
+@media (max-width: 768px) {
+
+    .carousel .row {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .compare-img {
+        max-width: 90%;
+        height: 250px;
+    }
+
+    .carousel-inner {
+        min-height: 520px;
+    }
+}
+
+/* Títulos */
+.carousel h4 {
+    margin-bottom: 10px;
 }
 
 /* ============================= */
@@ -447,6 +544,14 @@ form {
     width: 100%;
     height: 100%;
     border: 0;
+}
+
+#zonas select {
+    margin-bottom: 10px;
+}
+#resultadoZona {
+    font-weight: bold;
+    font-size: 16px;
 }
 
 
