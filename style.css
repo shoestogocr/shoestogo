@@ -10,6 +10,7 @@ body {
     padding-bottom: 80px;
 }
 
+
 .container {
     margin-top: 40px;
     animation: fadeIn 0.6s ease-in-out;
@@ -466,7 +467,7 @@ form {
 /* ============================= */
 
 .dark-mode {
-    background: url("/img/dark.png") no-repeat center center fixed;
+    background: url("img/dark.png") no-repeat center center fixed;
     background-size: cover !important;
     color: white !important;
 }
