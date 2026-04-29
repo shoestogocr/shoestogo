@@ -11,6 +11,9 @@ body {
     padding-top: 80px; /* 👈 ESTO ES LA SOLUCIÓN */
 }
 
+.reservas-page {
+    padding-top: 40px;
+}
 
 .container {
     margin-top: 20px;
