@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Panel Admin | Shoes To Go</title>
+
+<!-- Bootstrap -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+
+<!-- TU CSS -->
+<link rel="stylesheet" href="/style.css">
+
+</head>
+
+<body>
+
+<!-- 🔒 LOGIN SIMPLE -->
+<script>
+let password = prompt("Ingrese contraseña");
+
+if (password !== "N10e031583#") {
+  alert("Acceso denegado");
+  window.location.href = "index.html";
+}
+</script>
+
+<div class="container">
+
+  <h1 class="text-center">📊 Panel de Reservas</h1>
+
+  <!-- 🔍 FILTRO -->
+  <div class="text-center" style="margin-bottom:20px;">
+    <input type="date" id="filtroFecha" class="form-control" style="width:200px; display:inline;">
+    <button onclick="filtrar()" class="btn btn-primary">Filtrar</button>
+    <button onclick="location.reload()" class="btn btn-default">Reset</button>
+  </div>
+
+  <!-- 💰 TOTAL -->
+  <h3 class="text-center">💰 Total del día: <span id="totalDia">₡0</span></h3>
+
+  <!-- 📋 TABLA -->
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>Fecha</th>
+        <th>Hora</th>
+        <th>Cliente</th>
+        <th>Servicio</th>
+        <th>Total</th>
+        <th>Acción</th>
+      </tr>
+    </thead>
+    <tbody id="tablaReservas"></tbody>
+  </table>
+
+</div>
+
+<!-- 🔥 FIREBASE -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
+import { getFirestore, collection, getDocs, deleteDoc, doc } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBBHvm1l1LeutIsRWRnY1VtX_zbtYdESBU",
+  authDomain: "shoes-to-go-8d5ed.firebaseapp.com",
+  projectId: "shoes-to-go-8d5ed",
+  storageBucket: "shoes-to-go-8d5ed.firebasestorage.app",
+  messagingSenderId: "330613583692",
+  appId: "1:330613583692:web:93935f1cec184a05e529e9"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+// 🔥 CARGAR RESERVAS
+async function cargarReservas() {
+  let tabla = document.getElementById("tablaReservas");
+  let total = 0;
+
+  tabla.innerHTML = "";
+
+  let snapshot = await getDocs(collection(db, "reservas"));
+
+  snapshot.forEach(docSnap => {
+    let data = docSnap.data();
+
+    total += parseInt(data.total.replace(/[₡,]/g, "")) || 0;
+
+    let fila = `
+      <tr>
+        <td>${data.fecha}</td>
+        <td>${data.hora}</td>
+        <td>${data.nombre}</td>
+        <td>${data.servicio}</td>
+        <td>${data.total}</td>
+        <td>
+          <button onclick="eliminarReserva('${docSnap.id}')" class="btn btn-danger btn-xs">❌</button>
+        </td>
+      </tr>
+    `;
+
+    tabla.innerHTML += fila;
+  });
+
+  document.getElementById("totalDia").innerText = "₡" + total.toLocaleString();
+}
+
+// 🔥 ELIMINAR
+window.eliminarReserva = async function(id) {
+  if (!confirm("¿Eliminar reserva?")) return;
+
+  await deleteDoc(doc(db, "reservas", id));
+  cargarReservas();
+};
+
+// 🔥 FILTRAR
+window.filtrar = async function() {
+  let fechaFiltro = document.getElementById("filtroFecha").value;
+  let tabla = document.getElementById("tablaReservas");
+  let total = 0;
+
+  tabla.innerHTML = "";
+
+  let snapshot = await getDocs(collection(db, "reservas"));
+
+  snapshot.forEach(docSnap => {
+    let data = docSnap.data();
+
+    if (fechaFiltro && data.fecha !== fechaFiltro) return;
+
+    total += parseInt(data.total.replace(/[₡,]/g, "")) || 0;
+
+    let fila = `
+      <tr>
+        <td>${data.fecha}</td>
+        <td>${data.hora}</td>
+        <td>${data.nombre}</td>
+        <td>${data.servicio}</td>
+        <td>${data.total}</td>
+        <td>
+          <button onclick="eliminarReserva('${docSnap.id}')" class="btn btn-danger btn-xs">❌</button>
+        </td>
+      </tr>
+    `;
+
+    tabla.innerHTML += fila;
+  });
+
+  document.getElementById("totalDia").innerText = "₡" + total.toLocaleString();
+};
+
+cargarReservas();
+</script>
+
+<!-- 🌙 DARK MODE -->
+<script>
+if (localStorage.getItem("modoOscuro") === "true") {
+  document.body.classList.add("dark-mode");
+}
+</script>
+
+</body>
+</html>
