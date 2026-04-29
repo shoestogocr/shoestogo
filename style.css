@@ -526,6 +526,24 @@ form {
 }
 
 /* ============================= */
+/* 🌙 DARK MODE - EXTRAS FIX */
+/* ============================= */
+
+.dark-mode .extras-box {
+    background: #1e1e1e !important;
+    color: white !important;
+    box-shadow: inset 0 0 10px rgba(255,255,255,0.05);
+}
+
+.dark-mode .extras-box label {
+    color: white !important;
+}
+
+.dark-mode .extras-box input {
+    accent-color: #4a69ff; /* color bonito del check */
+}
+
+/* ============================= */
 /* 🗺️ MAPA RESPONSIVE FIX FINAL */
 /* ============================= */
 
@@ -555,6 +573,91 @@ form {
     font-size: 16px;
 }
 
+/* ============================= */
+/* 🚀 SERVICIOS PRO UI */
+/* ============================= */
+
+#servicios .row {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+#servicios .col-md-4 {
+    width: 300px;
+}
+
+/* CARD MEJORADA */
+.service-card {
+    border-radius: 20px;
+    padding: 25px;
+    position: relative;
+    backdrop-filter: blur(10px);
+    transition: all 0.3s ease;
+}
+
+.service-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(0,0,0,0.15);
+}
+
+/* ICONO */
+.icon-circle {
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    margin: 0 auto 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+/* PRECIO */
+.price {
+    margin-top: 12px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    display: inline-block;
+    font-weight: bold;
+    font-size: 15px;
+}
+
+/* ============================= */
+/* 🎨 COLORES */
+/* ============================= */
+
+.pink { background: #ffe0f0; color: #ff4da6; }
+.orange { background: #ffe8d6; color: #ff8c42; }
+.red { background: #ffe0e0; color: #ff4d4d; }
+.blue { background: #e0ecff; color: #3b82f6; }
+.purple { background: #efe0ff; color: #8b5cf6; }
+
+.green { background: #e0ffe5; color: #22c55e; }
+.violet { background: #f3e8ff; color: #a855f7; }
+.yellow { background: #fff7d6; color: #eab308; }
+.cyan { background: #e0f7ff; color: #06b6d4; }
+.sky { background: #e0f2ff; color: #0ea5e9; }
+
+.extras-box {
+    background: #f8f9ff;
+    padding: 15px;
+    border-radius: 12px;
+    box-shadow: inset 0 0 10px rgba(0,0,0,0.05);
+}
+
+.extras-box label {
+    display: block;
+    padding: 6px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.extras-box input {
+    margin-right: 8px;
+}
 
 /* ============================= */
 /* 📱 RESPONSIVE */
@@ -591,3 +694,5 @@ form {
         transform: translateY(0);
     }
 }
+
+@keyframes fadeIn {}
