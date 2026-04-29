@@ -9,23 +9,46 @@
   <link rel="stylesheet" href="../style.css">
 </head>
 
-<body>
+<body class="reservas-page">
 
 <!-- NAVBAR -->
 <nav class="navbar navbar-inverse navbar-fixed-top">
   <div class="container">
+
     <div class="navbar-header">
-      <a class="navbar-brand" href="../index.html">Shoes To Go</a>
+
+      <!-- Botón responsive -->
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#menu">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+
+      <!-- Logo -->
+      <a class="navbar-brand" href="../index.html">
+        Shoes To Go
+      </a>
     </div>
 
-    <ul class="nav navbar-nav">
-      <li><a href="../index.html">Inicio</a></li>
-      <li class="active"><a href="#">Reservas</a></li>
-    </ul>
+    <!-- Menú -->
+    <div class="collapse navbar-collapse" id="menu">
 
-    <ul class="nav navbar-nav navbar-right">
-      <li><a href="#" onclick="toggleDarkMode()">🌙</a></li>
-    </ul>
+      <ul class="nav navbar-nav">
+        <li><a href="../index.html#inicio">Inicio</a></li>
+        <li><a href="../index.html#como-funciona">¿Cómo funciona?</a></li>
+        <li><a href="../index.html#servicios">Servicios</a></li>
+        <li><a href="../index.html#contacto">Contacto</a></li>
+      </ul>
+
+      <!-- Dark Mode -->
+      <ul class="nav navbar-nav navbar-right">
+        <li>
+          <a href="#" onclick="toggleDarkMode()">🌙</a>
+        </li>
+      </ul>
+
+    </div>
+
   </div>
 </nav>
 
@@ -112,6 +135,8 @@
     © 2026 Shoes To Go | Limpieza Profesional de Tenis en Costa Rica
 </div>
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <!-- 🔥 FIREBASE -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js";
