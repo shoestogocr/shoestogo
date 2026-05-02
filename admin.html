@@ -24,7 +24,7 @@ if (password !== "N10e031583#") {
 }
 </script>
 
-<div class="container">
+<div class="container admin-box">
 
   <h1 class="text-center">📊 Panel de Reservas</h1>
 
@@ -136,7 +136,7 @@ window.filtrar = async function() {
         <td>${data.hora}</td>
         <td>${data.nombre}</td>
         <td>${data.servicio}</td>
-        <td>${data.total}</td>
+        <td>₡${parseInt(data.total.replace(/[₡.,]/g, "")).toLocaleString()}</td>
         <td>
           <button onclick="eliminarReserva('${docSnap.id}')" class="btn btn-danger btn-xs">❌</button>
         </td>
@@ -145,7 +145,16 @@ window.filtrar = async function() {
 
     tabla.innerHTML += fila;
   });
-
+  if (tabla.innerHTML === "") {
+    tabla.innerHTML = `
+      <tr>
+        <td colspan="6" style="text-align:center; padding:20px;">
+          No hay reservas para esta fecha
+        </td>
+      </tr>
+    `;
+  }
+  
   document.getElementById("totalDia").innerText = "₡" + total.toLocaleString();
 };
 
