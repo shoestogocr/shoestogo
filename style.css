@@ -1328,3 +1328,21 @@ td:nth-child(5) {
   font-size: 13px;
   color: #bbb;
 }
+
+.btn-eliminar {
+    background: #249653 !important;
+    border: none !important;
+    color: white;
+    border-radius: 20px;
+    padding: 10px 18px;
+}
+
+.btn-eliminar:hover {
+    background: #27ae60 !important;
+}
+
+.btn.btn-eliminar {
+    background: #14703a !important;
+    border: none !important;
+    color: white !important;
+}
