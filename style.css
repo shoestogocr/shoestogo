@@ -1224,3 +1224,10 @@ form {
 }
 
 @keyframes fadeIn {}
+
+@media (max-width: 768px) {
+  .contact-card-img img {
+    max-width: 90%;
+    margin-top: 20px;
+  }
+}
