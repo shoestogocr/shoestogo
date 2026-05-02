@@ -84,7 +84,7 @@ async function cargarReservas() {
   snapshot.forEach(docSnap => {
     let data = docSnap.data();
 
-    total += parseInt(data.total.replace(/[₡,]/g, "")) || 0;
+    total += parseInt(data.total.replace(/[₡.,]/g, "")) || 0;
 
     let fila = `
       <tr>
