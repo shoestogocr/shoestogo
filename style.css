@@ -905,7 +905,7 @@ form {
 
 .floating-menu {
     position: fixed;
-    bottom: 110px;
+    bottom: 27px;
     right: 20px;
     z-index: 999;
 }
@@ -1327,6 +1327,11 @@ td {
 td:nth-child(5) {
   font-size: 13px;
   color: #bbb;
+}
+
+.table td,
+.table th {
+  vertical-align: middle !important;
 }
 
 .btn-eliminar {
