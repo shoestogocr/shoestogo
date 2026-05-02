@@ -101,7 +101,7 @@ async function cargarReservas() {
         <td>${extrasTexto}</td>
         <td>${data.total}</td>
         <td>
-          <button onclick="eliminarReserva('${docSnap.id}')" class="btn btn-danger btn-xs">✅</button>
+          <button onclick="eliminarReserva('${docSnap.id}')" class="btn btn-eliminar btn-xs">⫸</button>
         </td>
       </tr>
     `;
@@ -159,7 +159,7 @@ window.filtrar = async function() {
         <td>${data.servicio}</td>
         <td>${data.total}</td>
         <td>
-          <button onclick="eliminarReserva('${docSnap.id}')" class="btn btn-danger btn-xs">✅</button>
+          <button onclick="eliminarReserva('${docSnap.id}')" class="btn btn-eliminar btn-xs">✔️</button>
         </td>
       </tr>
     `;
