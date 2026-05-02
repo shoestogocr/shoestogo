@@ -1319,3 +1319,12 @@ body:not(.dark-mode) .legal-page p strong {
   background: rgba(255,255,255,0.1);
   color: #4a69ff;
 }
+
+td {
+  vertical-align: middle !important;
+}
+
+td:nth-child(5) {
+  font-size: 13px;
+  color: #bbb;
+}
