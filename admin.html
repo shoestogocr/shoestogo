@@ -9,6 +9,7 @@
 
 <!-- TU CSS -->
 <link rel="stylesheet" href="style.css">
+<link rel="icon" type="image/png" href="img/logo-chat.png">
 
 </head>
 
@@ -46,6 +47,7 @@ if (password !== "N10e031583#") {
         <th>Hora</th>
         <th>Cliente</th>
         <th>Servicio</th>
+        <th>Extra</th>
         <th>Total</th>
         <th>Acción</th>
       </tr>
@@ -86,21 +88,36 @@ async function cargarReservas() {
 
     total += parseInt(data.total.replace(/[₡.,]/g, "")) || 0;
 
+    let extrasTexto = data.extras && data.extras.length > 0
+    ? data.extras.map(e => `<span class="badge">${e}</span>`).join(" ")
+    : "—";
+      
     let fila = `
       <tr>
         <td>${data.fecha}</td>
         <td>${data.hora}</td>
         <td>${data.nombre}</td>
         <td>${data.servicio}</td>
+        <td>${extrasTexto}</td>
         <td>${data.total}</td>
         <td>
-          <button onclick="eliminarReserva('${docSnap.id}')" class="btn btn-danger btn-xs">❌</button>
+          <button onclick="eliminarReserva('${docSnap.id}')" class="btn btn-danger btn-xs">✅</button>
         </td>
       </tr>
     `;
 
     tabla.innerHTML += fila;
   });
+
+  if (tabla.innerHTML === "") {
+    tabla.innerHTML = `
+      <tr>
+        <td colspan="6" style="text-align:center; padding:20px;">
+          No hay reservas para esta fecha
+        </td>
+      </tr>
+    `;
+  }
 
   document.getElementById("totalDia").innerText = "₡" + total.toLocaleString();
 }
@@ -126,6 +143,10 @@ window.filtrar = async function() {
   snapshot.forEach(docSnap => {
     let data = docSnap.data();
 
+    let extrasTexto = data.extras && data.extras.length > 0
+    ? data.extras.map(e => `<span class="badge">${e}</span>`).join(" ")
+    : "—";
+
     if (fechaFiltro && data.fecha !== fechaFiltro) return;
 
     total += parseInt(data.total.replace(/[₡,]/g, "")) || 0;
@@ -136,25 +157,16 @@ window.filtrar = async function() {
         <td>${data.hora}</td>
         <td>${data.nombre}</td>
         <td>${data.servicio}</td>
-        <td>₡${parseInt(data.total.replace(/[₡.,]/g, "")).toLocaleString()}</td>
+        <td>${data.total}</td>
         <td>
-          <button onclick="eliminarReserva('${docSnap.id}')" class="btn btn-danger btn-xs">❌</button>
+          <button onclick="eliminarReserva('${docSnap.id}')" class="btn btn-danger btn-xs">✅</button>
         </td>
       </tr>
     `;
 
     tabla.innerHTML += fila;
   });
-  if (tabla.innerHTML === "") {
-    tabla.innerHTML = `
-      <tr>
-        <td colspan="6" style="text-align:center; padding:20px;">
-          No hay reservas para esta fecha
-        </td>
-      </tr>
-    `;
-  }
-  
+
   document.getElementById("totalDia").innerText = "₡" + total.toLocaleString();
 };
 
