@@ -1231,3 +1231,91 @@ form {
     margin-top: 20px;
   }
 }
+
+/* ============================= */
+/* 📄 LEGAL PAGES (TERMINOS / POLITICA) */
+/* ============================= */
+
+.legal-page {
+    margin-top: 100px;
+    margin-bottom: 60px;
+    max-width: 900px;
+    
+    background: rgba(0, 0, 0, 0.75);
+    padding: 40px;
+    border-radius: 20px;
+    
+    backdrop-filter: blur(10px);
+}
+
+/* TITULO */
+.legal-page h1 {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+/* FECHA */
+.legal-page p strong {
+    display: block;
+    text-align: center;
+    font-size: 13px;
+    margin-bottom: 30px;
+    color: #bbb;
+}
+
+/* SECCIONES */
+.legal-page h3 {
+    margin-top: 25px;
+    color: #4a69ff;
+}
+
+/* TEXTO */
+.legal-page p,
+.legal-page li {
+    color: #ddd;
+    line-height: 1.6;
+}
+
+/* LISTAS */
+.legal-page ul {
+    margin-left: 20px;
+    margin-bottom: 15px;
+}
+
+/* 🌞 MODO CLARO */
+body:not(.dark-mode) .legal-page {
+    background: rgba(255,255,255,0.95);
+}
+
+body:not(.dark-mode) .legal-page p,
+body:not(.dark-mode) .legal-page li {
+    color: #333;
+}
+
+body:not(.dark-mode) .legal-page p strong {
+    color: #666;
+}
+
+/* ADMIN PANEL PRO */
+.admin-box {
+  background: rgba(0,0,0,0.75);
+  padding: 30px;
+  border-radius: 20px;
+  backdrop-filter: blur(10px);
+  margin-top: 100px;
+  color: white;
+}
+
+.admin-box h1 {
+  color: #4a69ff;
+}
+
+.admin-box table {
+  background: rgba(255,255,255,0.05);
+  color: white;
+}
+
+.admin-box th {
+  background: rgba(255,255,255,0.1);
+  color: #4a69ff;
+}
