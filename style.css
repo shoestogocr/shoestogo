@@ -1317,3 +1317,18 @@ td:nth-child(5) {
     color: white !important;
 }
 
+
+.btn-eliminar {
+  background: #ff4d4d;
+  color: white;
+  border-radius: 8px;
+}
+
+.btn-eliminar:hover {
+  background: #ff1a1a;
+}
+
+.badge {
+  background: #4a69ff;
+  margin-right: 5px;
+}
