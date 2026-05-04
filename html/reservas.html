@@ -412,6 +412,12 @@ document.getElementById("reservaForm").addEventListener("submit", async function
 
     let duracion = obtenerDuracion(servicio);
 
+    let extrasSeleccionados = [];
+
+    document.querySelectorAll(".extra:checked").forEach(e => {
+      extrasSeleccionados.push(e.parentElement.innerText.trim());
+    });
+
     await addDoc(collection(window.db, "reservas"), {
       fecha,
       hora,
@@ -421,6 +427,7 @@ document.getElementById("reservaForm").addEventListener("submit", async function
       direccion,
       total,
       duracion,
+      extras: extrasSeleccionados,
       aceptaTerminos: true
     });
 
