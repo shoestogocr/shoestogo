@@ -426,6 +426,14 @@ document.getElementById("reservaForm").addEventListener("submit", async function
   // 🔥 DESPUÉS de guardar → WhatsApp
   window.location.href =
     "https://wa.me/50685936114?text=" + encodeURIComponent(mensaje);
+
+  // ✅ VALIDAR CHECKBOX
+  let acepta = document.getElementById("aceptaTerminos").checked;
+
+  if (!acepta) {
+    alert("Debes aceptar los Términos y Condiciones para continuar");
+    return;
+  }
 }); // 🔥 ESTE ERA EL QUE FALTABA
 
 
