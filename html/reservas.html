@@ -384,6 +384,14 @@
 document.getElementById("reservaForm").addEventListener("submit", async function(e) {
   e.preventDefault();
 
+    // ✅ VALIDAR CHECKBOX
+  let acepta = document.getElementById("aceptaTerminos").checked;
+
+  if (!acepta) {
+    alert("Debes aceptar los Términos y Condiciones para continuar");
+    return;
+  }
+
   let fecha = document.getElementById("fecha").value;
   let hora = document.getElementById("hora").value;
   let servicio = document.getElementById("servicioPrincipal").selectedOptions[0].text;
@@ -427,13 +435,7 @@ document.getElementById("reservaForm").addEventListener("submit", async function
   window.location.href =
     "https://wa.me/50685936114?text=" + encodeURIComponent(mensaje);
 
-  // ✅ VALIDAR CHECKBOX
-  let acepta = document.getElementById("aceptaTerminos").checked;
 
-  if (!acepta) {
-    alert("Debes aceptar los Términos y Condiciones para continuar");
-    return;
-  }
 }); // 🔥 ESTE ERA EL QUE FALTABA
 
 
