@@ -435,6 +435,16 @@ body:not(.dark-mode) .contact-card {
 /* ✅ NAVBAR CORPORATIVA PREMIUM */
 /* ============================= */
 
+.logo-navbar {
+    height: 60px;
+    margin-right: 10px;
+    display: inline-block;
+}
+
+.navbar-brand {
+    display: flex;
+    align-items: center;
+}
 
 .navbar-inverse {
     background: #1f3c88 !important;
